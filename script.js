@@ -16,24 +16,18 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 
 const num_chilometri = parseInt(prompt('Quanti chilometri?'));
 const eta_passeggero = parseInt(prompt('quanti anni hai?'));
-const prezzChilometro = 0.21;
-const prezzoBase = prezzChilometro * num_chilometri;
-const sconto_minori = (prezzoBase * 20) / 100;
-const sconto_maggiori = (prezzoBase * 40) / 100;
-const prezzo_minori_scontato = prezzoBase - sconto_minori;
-const prezzo_maggiori_scontato = prezzoBase - sconto_maggiori;
-const no_sconto = ' prezzo intero: '+ (prezzoBase) + '€';
-if (eta_passeggero < 18 ) {
-    
-    const risultato_minori = prezzo_minori_scontato.toFixed(2);
-    document.getElementById('prezzo').innerHTML = risultato_minori  + '€';
-}else if(eta_passeggero > 65){
-    
-    const risultato_maggiori = prezzo_maggiori_scontato.toFixed(2);
-    document.getElementById('prezzo').innerHTML = risultato_maggiori  + '€';
+
+const prezzo_minori_scontato = (0.21 * num_chilometri) - (((0.21 * num_chilometri) * 20) / 100);
+const prezzo_maggiori_scontato = (0.21 * num_chilometri) - (((0.21 * num_chilometri) * 40) / 100);
+
+if (eta_passeggero < 18) {
+
+    document.getElementById('prezzo').innerHTML = (prezzo_minori_scontato.toFixed(2)) + '€';
+} else if (eta_passeggero > 65) {
+
+    document.getElementById('prezzo').innerHTML = (prezzo_maggiori_scontato.toFixed(2)) + '€';
 }
-else{
-    
-    const prezzo_non_scontato = prezzoBase.toFixed(2);
-    document.getElementById('prezzo').innerHTML = prezzo_non_scontato;
+else {
+
+    document.getElementById('prezzo').innerHTML = (('prezzo non scontato: ') + (0.21 * num_chilometri).toFixed(2)) + '€';
 }
