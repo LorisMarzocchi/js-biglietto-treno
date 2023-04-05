@@ -17,11 +17,11 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 const num_chilometri = parseInt(prompt('Quanti chilometri?'));
 const eta_passeggero = parseInt(prompt('quanti anni hai?'));
 const prezzChilometro = 0.21;
-let prezzoBase = prezzChilometro * num_chilometri;
+const prezzoBase = prezzChilometro * num_chilometri;
 const sconto_minori = (prezzoBase * 20) / 100;
 const sconto_maggiori = (prezzoBase * 40) / 100;
-let prezzo_minori_scontato = prezzoBase - sconto_minori;
-let prezzo_maggiori_scontato = prezzoBase - sconto_maggiori;
+const prezzo_minori_scontato = prezzoBase - sconto_minori;
+const prezzo_maggiori_scontato = prezzoBase - sconto_maggiori;
 const no_sconto = ' prezzo intero: '+ (prezzoBase) + '€';
 if (eta_passeggero < 18 ) {
     
